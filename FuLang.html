@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документация по FuLang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+        code {
+            background: #eee;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .note {
+            background: #fffbcc;
+            border-left: 6px solid #ffeb3b;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Документация по FuLang</h1>
+        <section id="introduction">
+            <h2>Введение</h2>
+            <p>FuLang — это простой функциональный язык программирования, разработанный для образовательных целей и демонстрации основ функционального программирования. Он поддерживает основные математические операции, переменные, условия, функции и константы. В этом документе представлено подробное описание особенностей и синтаксиса языка.</p>
+        </section>
+        <section id="features">
+            <h2>Особенности</h2>
+            <ul>
+                <li>Поддержка базовых математических операций</li>
+                <li>Работа с переменными и константами</li>
+                <li>Библиотека встроенных функций</li>
+                <li>Условные операторы и конструкции if-else</li>
+                <li>Определение пользовательских функций</li>
+            </ul>
+        </section>
+        <section id="recommendations">
+            <h2>Рекомендации по установке</h2>
+            <ol>
+                <li>Скачайте и разархивируйте проект FuLang или клонируйте репозиторий с исходным кодом.</li>
+                <li>Перейдите в директорию проекта в терминале. Папка <code>FuLang</code>.</li>
+                <li>Соберите проект с помощью командной строки:</li>
+                <pre><code>dotnet build</code></pre>
+                <li>Запустите проект с помощью команды <code>dotnet run {PathToFile}</code>, где <code>{PathToFile}</code> — путь к вашему файлу FuLang.</li>
+                <li>Также можно добавить FuLang в переменную окружения PATH и запускать программы следующим образом:</li>
+            <pre><code>./FuLang {PathToFile}</code></pre>
+            </ol>
+        </section>
+        <section id="installation">
+            <h2>Запуск программы</h2>
+            <p>Для запуска программы выполните следующие шаги:</p>
+            <ol>
+                <li>Перейдите в директорию с FuLang в терминале.</li>
+                <li>Запустите программу с указанным файлом: <code>dotnet run {PathToFile}</code></li>
+            </ol>
+            <p>Пример:</p>
+            <pre><code>dotnet run ../program.fl</code></pre>
+        </section>
+        <section id="syntax">
+            <h2>Основной синтаксис</h2>
+            <h3>Математические операции</h3>
+            <p>FuLang поддерживает основные математические операции, такие как:</p>
+            <ul>
+                <li>Сложение: <code>+</code></li>
+                <li>Вычитание: <code>-</code></li>
+                <li>Умножение: <code>*</code></li>
+                <li>Деление: <code>/</code></li>
+                <li>Остаток от деления: <code>%</code></li>
+            </ul>
+            <h3>Переменные</h3>
+            <p>Переменные можно присваивать с помощью синтаксиса <code>ЛЮБОЕ_СЛОВО = значение</code>. Например:</p>
+            <pre><code>word = 10
+a = 15</code></pre>
+            <h3>Вывод значений</h3>
+            <p>Для вывода значений используется функция <code>print</code>. Например:</p>
+            <pre><code>print word
+print a</code></pre>
+            <h3>Константы и библиотечные функции</h3>
+            <p>FuLang включает в себя константы <code>PI</code> и <code>E</code>, а также библиотечные функции, такие как <code>sin</code>, <code>cos</code>, <code>sum</code>, и <code>echo</code>.</p>
+            <h3>Условные операторы и конструкции if-else</h3>
+            <p>FuLang поддерживает операторы сравнения (<code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>!=</code>, <code>==</code>) и конструкции if-else. Синтаксис:</p>
+            <pre><code>| (условие) {...код...} - IF
+\ {...код...} - ELSE</code></pre>
+            <h3>Пользовательские функции</h3>
+            <p>Пользовательские функции создаются с помощью следующего синтаксиса:</p>
+            <pre><code>func functionName : arg1 arg2 ... argN = {
+    ...код...
+}</code></pre>
+            <p>Для возврата значения используется оператор <code>return</code>.</p>
+            <h3>Примеры функций</h3>
+            <h4>Факториал</h4>
+            <pre><code>func Fact : n = {
+    | (n == 1) {return 1}
+    \ {return (n * Fact(n - 1))}
+}
+
+print Fact(10)</code></pre>
+            <h4>Фибоначчи</h4>
+            <pre><code>func Fib : num = {
+    | (num <= 1) {return 0}
+    \ { | (num == 2) {return 1}
+        \ {return Fib(num - 1) + Fib(num - 2)}
+    }
+}
+
+print Fib(12)</code></pre>
+            <h4>Минимум</h4>
+            <pre><code>func Min : a b = {
+    | (a < b) return a
+    \ return b
+}</code></pre>
+            <h4>Максимум</h4>
+            <pre><code>func Max : a b = {
+    | (a > b) return a
+    \ return b
+}</code></pre>
+            <h4>Наибольший общий делитель</h4>
+            <pre><code>func GCD : a b = {
+    minNum = Min (a b)
+    maxNum = Max (a b)
+    | (minNum == 0) {return maxNum}
+    \ { | (minNum == 1) {return 1}
+        \ {return GCD (minNum, maxNum % minNum)}
+    }
+}
+
+print GCD (10 4)</code></pre>
+        </section>
+        <section id="structur">
+            <h2>Структура системы</h2>
+            <p>Проект представляет собой реализацию компилятора для функционального языка программирования "FuLang". Основные элементы системы включают:</p>
+            <h3>Каталог FuLang</h3>
+            <h4>Файлы исходного кода:</h4>
+                  <ul>
+                  <li><code>AssignmentStatement.fs</code>: Реализация операторов присваивания.</li>
+                  <li><code>BinaryExpression.fs</code>: Обработка бинарных выражений.</li>
+                  <li><code>BlockStatement.fs</code>: Работа с блоками операторов.</li>
+                  <li><code>ConditionalExpression.fs</code>: Реализация условных выражений.</li>
+                  <li><code>ConstantExpression.fs</code>: Обработка константных выражений.</li>
+                  <li><code>Expression.fs</code>: Базовый класс для всех выражений.</li>
+                  <li><code>Function.fs</code>: Определение и обработка функций.</li>
+                  <li><code>FunctionalDefineStatement.fs</code>: Определение функциональных операторов.</li>
+                  <li><code>FunctionalExpression.fs</code>: Обработка функциональных выражений.</li>
+                  <li><code>FunctionalStatement.fs</code>: Обработка операторов для функционального программирования.</li>
+                  <li><code>Functions.fs</code>: Реализация встроенных функций.</li>
+                  <li><code>IfStatement.fs</code>: Реализация условных операторов.</li>
+                  <li><code>Lexer.fs</code>: Лексический анализатор.</li>
+                  <li><code>NumberExpression.fs</code>: Обработка числовых выражений.</li>
+                  <li><code>Parser.fs</code>: Синтаксический анализатор.</li>
+                  <li><code>PrintStatement.fs</code>: Оператор вывода.</li>
+                  <li><code>Program.fs</code>: Главный модуль программы.</li>
+                  <li><code>ReturnStatement.fs</code>: Оператор возврата.</li>
+                  <li><code>Statement.fs</code>: Базовый класс для всех операторов.</li>
+                  <li><code>Token.fs</code>: Классы для работы с токенами.</li>
+                  <li><code>TokenType.fs</code>: Определение типов токенов.</li>
+                  <li><code>UnaryExpression.fs</code>: Обработка унарных выражений.</li>
+                  <li><code>UserDefinedFunction.fs</code>: Определение пользовательских функций.</li>
+                  <li><code>Variables.fs</code>: Работа с переменными.</li>
+                  </ul>
+            <h4>Проектные файлы:</h4>
+                  <ul>
+                  <li><code>FuLang.fsproj</code>: Файлы конфигурации проекта для компилятора.</li>
+                 </ul>
+           <h3>Документация</h3>
+                 <ul>
+                 <li><code>README.md</code>: Описание проекта, цели лабораторной работы и основные требования.</li>
+                 </ul>
+           <h3>Пример программы</h3>
+                 <ul>
+                 <li><code>program.fl</code>: Пример программы на языке FuLang, демонстрирующий основные возможности языка, такие как объявление переменных, математические операции, условия, функции и рекурсия.</li>
+                 </ul>
+        </section>
+        <section id="pros-cons">
+            <h2>Плюсы и минусы</h2>
+            <h3>Плюсы</h3>
+            <ul>
+                <li>Простота синтаксиса и лёгкость освоения.</li>
+                <li>Поддержка функционального программирования.</li>
+                <li>Наличие встроенных математических функций и констант.</li>
+            </ul>
+            <h3>Минусы</h3>
+            <ul>
+                <li>Ограниченная функциональность по сравнению с более распространёнными языками программирования.</li>
+                <li>Отсутствие поддержки сложных структур данных.</li>
+                <li>Ограниченные возможности для масштабируемости и расширяемости.</li>
+            </ul>
+        </section>
+        <section id="scalability">
+            <h2>Масштабируемость и будущее развитие</h2>
+            <p>Возможные направления будущего развития FuLang включают:</p>
+            <ul>
+                <li>Добавление поддержки сложных структур данных, таких как списки и словари.</li>
+                <li>Улучшение системы ввода-вывода для работы с файлами и сетью.</li>
+                <li>Оптимизация производительности интерпретатора.</li>
+                <li>Разработка интеграции с другими языками программирования.</li>
+                <li>Расширение библиотеки встроенных функций и добавление новых математических и логических операций.</li>
+            </ul>
+        </section>
+        <section id="authors">
+            <h2>Авторы</h2>
+            <p>Проект разработан командой энтузиастов:</p>
+            <ul>
+                <li><strong>Ляхов Владимир</strong> — контроль и помощь в написании кода,контроль и помощь в написании документации (тимлид).</li>
+                <li><strong>Киселев Артем</strong> — написание кода (главный разработчик).</li>
+                <li><strong>Ажаурова Александра</strong> — составление документации (автор технической документации).</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
